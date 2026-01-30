@@ -30,15 +30,6 @@ py build.py
 ./.moonmake/bin/distribution.exe
 ```
 
-### Configuration
-
-Key parameters you can adjust in `main.cpp`:
-
-- `MAX_PREVIOUS_TOKENS`: Number of previous tokens to consider (default: 5)
-- `USE_WORDS`: Toggle between word and character level generation (uncomment to enable)
-- Generation length: Modify the loop iteration count (default: 100)
-- Temperature and mixing parameters in the selection functions
-
 ## Training Data
 
 The current implementation uses text from [Xenosystems by Nick Land](https://www.amazon.com/-/es/Xenosystems-Nick-Land/dp/B0FGGG8J9B/ref=sr_1_1?__mk_es_US=%C3%85M%C3%85%C5%BD%C3%95%C3%91&sr=8-1) as training data.
