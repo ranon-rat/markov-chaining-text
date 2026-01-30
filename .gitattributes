@@ -1,3 +1,8 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+# Normalize text files
+*.cpp text eol=lf
+*.h++ text eol=lf
+*.py text eol=lf
+*.txt text eol=lf
+
+# Keep tokens binary
 *.tokens binary -text diff
