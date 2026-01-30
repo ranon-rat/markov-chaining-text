@@ -1,0 +1,24 @@
+CompileFlags:
+  Add:
+    - -xc++
+    - -std=c++23
+    - -Wall
+    - -Wextra
+    - -Werror
+    - -O2
+    - -I.moonmake/dependencies/headers
+    - -Isrc/include
+  Remove:
+    # Quitar flags que clangd no necesita
+    - -MMD
+    - -MP
+    - -mconsole
+    - -lgdi32
+    - -lwinmm
+
+Diagnostics:
+  UnusedIncludes: Strict
+  MissingIncludes: Strict
+  
+Index:
+  Background: Build

@@ -1,0 +1,9 @@
+-std=c++23
+-Wall
+-Wextra
+-Werror
+-O2
+-Wno-unused-parameter
+-Wno-return-type
+-I./.moonmake/dependencies/headers
+-I./src/include
