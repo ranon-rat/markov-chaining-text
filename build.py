@@ -5,29 +5,6 @@ import sys
 
 dir_path = mmake.get_dir(__file__)
 def join (*dir, separator="/"): return f"{separator}".join(dir).replace(r"\\","/")
-def get_raylib_url():
-    #Determines the Raylib download URL based on the operating system
-    system = platform.system()
-    BASE_URL = "https://github.com/raysan5/raylib/releases/download/5.5"
-    
-    if system == "Windows":
-        return f"{BASE_URL}/raylib-5.5_win64_mingw-w64.zip"
-    elif system == "Darwin":  # macOS
-        return f"{BASE_URL}/raylib-5.5_macos.tar.gz"
-    elif system == "Linux":
-        return f"{BASE_URL}/raylib-5.5_linux_amd64.tar.gz"
-    else:
-        raise Exception(f"Unsupported system: {system}")
-
-def install():
-    #Downloads and installs the necessary dependencies.#
-    raylib_url = get_raylib_url()
-    mmake.download_dependency(
-        raylib_url, 
-        "raylib", 
-        ".moonmake/dependencies", 
-        headers=["include"]
-    )
 
 def execute():
     #Configures and executes the build process.#
@@ -129,5 +106,5 @@ def execute():
     builder.compile_all()
 
 if __name__ == "__main__":
-    mmake.arguments_cmd(sys.argv, execute, install)
+    execute()
 

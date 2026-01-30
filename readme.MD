@@ -20,21 +20,22 @@ This project explores probabilistic text generation using a modified Markov chai
 - **Flexible input**: Supports both character-level and word-level tokenization
 
 ## Building
+
+This project uses [moonmake](https://github.com/ranon-rat/moonmake), a lightweight Python-based build system for C++ projects.
 ```bash
-# Compile
+# Build the project
 py build.py
-# Run
+
+# Run the executable
 ./.moonmake/bin/distribution.exe
 ```
-
-
 
 ### Configuration
 
 Key parameters you can adjust in `main.cpp`:
 
 - `MAX_PREVIOUS_TOKENS`: Number of previous tokens to consider (default: 5)
-- `USE_WORDS`: Toggle between word and character level generation
+- `USE_WORDS`: Toggle between word and character level generation (uncomment to enable)
 - Generation length: Modify the loop iteration count (default: 100)
 - Temperature and mixing parameters in the selection functions
 
@@ -51,16 +52,22 @@ To use your own data, you'll need to pre-process it into the `.tokens` format ex
 3. **Weighted Selection**: Combines predictions from all historical tokens with exponential decay based on distance
 4. **Diversity Mixing**: Adds uniform noise to prevent deterministic loops
 
+## Algorithm Details
+
+The generator uses a sophisticated selection mechanism:
+
+- Each previously used token contributes to predicting the next token
+- Look-ahead depth decreases with token age (more recent = deeper look-ahead)
+- Weights decay exponentially based on prediction distance
+- Small uniform distribution is mixed in to ensure exploration
+
 ## Future Plans
 
 This prototype serves as a foundation for:
 - More sophisticated language modeling experiments
 - Hybrid statistical/neural approaches
 - Custom text generation applications
-
-## License
-
-[Add your license here]
+- Integration with modern NLP techniques
 
 ## Contributing
 
