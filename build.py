@@ -30,9 +30,6 @@ def execute():
     static_a_files = mmake.discover(join(".", MOONMAKE_DIR, "dependencies", "lib"), ".a")
     static_libs = [f"-l{mmake.strip_lib_prefix(a).replace('.a', '')}" for a in static_a_files]
     
-    if platform.system() == "Windows":
-        static_libs.extend(["-lgdi32", "-lwinmm","-mconsole"])
-    
     # Compilation flags
     INCLUDE_FLAGS = mmake.join_with_flag(include_paths, "-I")
     LINK_FLAGS = mmake.join_with_flag(lib_paths, "-L")
